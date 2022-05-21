@@ -1,5 +1,36 @@
 from django.shortcuts import render
+import calendar
+from calendar import HTMLCalendar
+from datetime import datetime
 
 # Create your views here.
-def home(request):
-    return render(request,'home.html',{})
+def home(request,year,month):
+
+#convert to uppercase
+    month= month.title() #capitalize() also works
+
+#converting month from name to number
+    month_number = list(calendar.month_name).index(month)
+    month_number = int(month_number)
+
+#creating calendar
+    cal = HTMLCalendar().formatmonth(
+        year,
+        month_number)
+
+#Get a current year
+    now = datetime.now()
+    current_year = now.year
+
+#Get the current TIME
+    time = now.strftime('%I:%M:%S %p')
+
+
+    return render(request,'home.html',{
+        "year":year,
+        "month": month,
+        "month_number": month_number,
+        "cal":cal,
+        "current_year": current_year,
+        "time": time,
+    })
