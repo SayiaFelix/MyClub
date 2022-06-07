@@ -9,4 +9,7 @@ urlpatterns = [
     path('list_venue',views.list_venues, name='list_venue'),
     path('show_venue/<venue_id>',views.show_venues, name='show_venue'),
     path('api/merch/', views.MerchList.as_view()),
+    path('api/merch/merch-id/(?P<pk>[0-9]+)/',views.MerchDescription.as_view()),
+    # path('api/merch/merch-id/(?P<pk>[0-9]+)/',
+    #     views.MerchDescription.as_view())
 ]

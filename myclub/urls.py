@@ -14,7 +14,7 @@ urlpatterns = [
     path('logout/',auth_views.LogoutView.as_view(template_name='users/logout.html'),name='logout'),
     path('',include('events.urls')),
     path('blog/',include('blog.urls')),
-    path('^api-token-auth/', obtain_auth_token),
+    path('api-token-auth/', obtain_auth_token),
     
 
 ]
