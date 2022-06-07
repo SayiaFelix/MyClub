@@ -24,10 +24,17 @@
 <br>
 
  {% endfor %}
-
-
 </div>
-
-
-
  {% endblock %}
+
+{% comment %} {% block scripts %} {{block.super}}
+  <script>
+$(document).ready(function(){
+  $('form').submit(function(event){
+    event.preventDefault()
+  }) // End of submit event
+
+}) // End of document ready function
+
+  </script>
+{% endblock %} {% endcomment %}

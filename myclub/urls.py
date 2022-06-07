@@ -4,6 +4,7 @@ from django.urls import path,include
 from users import views as user_views
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -13,6 +14,8 @@ urlpatterns = [
     path('logout/',auth_views.LogoutView.as_view(template_name='users/logout.html'),name='logout'),
     path('',include('events.urls')),
     path('blog/',include('blog.urls')),
+    path('^api-token-auth/', obtain_auth_token),
+    
 
 ]
 if settings.DEBUG:

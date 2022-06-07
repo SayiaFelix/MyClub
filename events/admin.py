@@ -1,12 +1,11 @@
 from django.contrib import admin
-from .models import Venue
-from .models import MyClubUser
-from .models import Event
+from .models import *
+
 
 # Register your models here.
 # admin.site.register(Venue,VenueAdmin)
 admin.site.register(MyClubUser)
-# admin.site.register(Event)
+admin.site.register(MoringaMerch)
 
 @admin.register(Venue)
 class VenueAdmin(admin.ModelAdmin):
